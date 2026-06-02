@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
-import heroVideo from '../assets/hero-video.mp4'
-import heroVideoMobile from '../assets/hero-mobile-video.mp4'
+import heroVideo from '../assets/asya-tailors.mp4'
+import heroVideoMobile from '../assets/asya-tailors.mp4'
 
 export default function Hero() {
   const grainRef = useRef(null)
