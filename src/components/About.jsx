@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
-import aboutImg from '../assets/hero-mobile.png'
+import aboutImg from '../assets/about-final.png'
 import bannerImg from '../assets/banner.png' // 1. Image import ki
 
 export default function About() {
