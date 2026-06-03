@@ -4,6 +4,7 @@ import Marquee from './components/Marquee'
 import About from './components/About'
 import Services from './components/Services'
 import Process from './components/Process'
+import Showcase from './components/Showcase'
 import Portfolio from './components/Portfolio'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
@@ -14,10 +15,12 @@ export default function App() {
       <Navbar />
       <main>
         <Hero />
+        <Showcase />
         <Marquee />
         <About />
         <Services />
         <Process />
+        <Showcase />
         <Portfolio />
         <Contact />
       </main>
@@ -29,20 +32,12 @@ export default function App() {
         target="_blank"
         rel="noopener noreferrer"
         style={{
-          position: 'fixed',
-          bottom: '32px',
-          right: '32px',
-          zIndex: 9999,
-          width: '60px',
-          height: '60px',
-          borderRadius: '50%',
-          background: '#25D366',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
+          position: 'fixed', bottom: '32px', right: '32px',
+          zIndex: 9999, width: '60px', height: '60px',
+          borderRadius: '50%', background: '#25D366',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
           boxShadow: '0 4px 20px rgba(37,211,102,0.4)',
-          transition: 'all 0.3s ease',
-          textDecoration: 'none',
+          transition: 'all 0.3s ease', textDecoration: 'none',
         }}
         onMouseEnter={e => {
           e.currentTarget.style.transform = 'scale(1.1)'
