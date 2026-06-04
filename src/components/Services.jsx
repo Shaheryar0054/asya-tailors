@@ -40,126 +40,108 @@ const services = [
 export default function Services() {
   return (
     <section id="services" style={{
-      background: 'var(--deep)',
+      background: 'var(--bg-main)',
       padding: '120px 80px',
       position: 'relative',
     }}>
-      {/* Header */}
-      <div style={{
-        maxWidth: '1200px', margin: '0 auto',
-        display: 'flex', justifyContent: 'space-between',
-        alignItems: 'flex-end', marginBottom: '80px',
-        flexWrap: 'wrap', gap: '32px',
-      }}>
-        <div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '24px' }}>
-            <div style={{ width: '32px', height: '1px', background: 'var(--gold)' }}/>
-            <span style={{
-              fontFamily: 'var(--font-body)', fontSize: '10px',
-              letterSpacing: '0.35em', color: 'var(--gold)',
-              textTransform: 'uppercase',
-            }}>What We Do</span>
-          </div>
-          <h2 style={{
-            fontFamily: 'var(--font-display)',
-            fontSize: 'clamp(40px, 5vw, 64px)',
-            fontWeight: 400, color: 'var(--ivory)',
-            lineHeight: 1.05,
-          }}>
-            Full-Service<br/>
-            <span style={{ fontStyle: 'italic', color: 'var(--gold-light)' }}>Garment Studio</span>
-          </h2>
-        </div>
-        <p style={{
-          fontFamily: 'var(--font-body)',
-          fontSize: '14px', lineHeight: '1.8',
-          color: 'var(--text-muted)', maxWidth: '320px',
+      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+        {/* Header */}
+        <div style={{
+          display: 'flex', justifyContent: 'space-between',
+          alignItems: 'flex-end', marginBottom: '72px',
+          flexWrap: 'wrap', gap: '32px',
         }}>
-          Every service designed to bring your brand's vision to market — 
-          from first sketch to final shipment.
-        </p>
-      </div>
+          <div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '20px' }}>
+              <div style={{ width: '32px', height: '1px', background: 'var(--clay)' }}/>
+              <span style={{
+                fontFamily: 'var(--font-body)', fontSize: '10px',
+                letterSpacing: '0.35em', color: 'var(--clay)',
+                textTransform: 'uppercase',
+              }}>What We Do</span>
+            </div>
+            <h2 style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: 'clamp(40px, 5vw, 60px)',
+              fontWeight: 400, color: '#1A1A1A',
+              lineHeight: 1.05,
+            }}>
+              Full-Service<br/>
+              <span style={{ fontStyle: 'italic', color: 'var(--clay)' }}>Garment Studio</span>
+            </h2>
+          </div>
+          <p style={{
+            fontFamily: 'var(--font-body)',
+            fontSize: '14px', lineHeight: '1.8',
+            color: 'var(--text-muted)', maxWidth: '320px',
+          }}>
+            Every service designed to bring your brand's vision to market —
+            from first sketch to final shipment.
+          </p>
+        </div>
 
-      {/* Service Grid */}
-      <div style={{
-        maxWidth: '1200px', margin: '0 auto',
-        display: 'grid',
-        gridTemplateColumns: 'repeat(3, 1fr)',
-        gap: '1px',
-        background: 'rgba(184,150,90,0.15)',
-      }} className="services-grid">
-        {services.map((s, i) => (
-          <ServiceCard key={i} {...s} />
-        ))}
+        {/* Grid */}
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(3, 1fr)',
+          gap: '1px',
+          background: 'rgba(180,140,80,0.15)',
+        }} className="services-grid">
+          {services.map((s, i) => <ServiceCard key={i} {...s} index={i} />)}
+        </div>
       </div>
 
       <style>{`
-        @media (max-width: 1024px) {
-          .services-grid { grid-template-columns: repeat(2, 1fr) !important; }
-        }
-        @media (max-width: 640px) {
-          .services-grid { grid-template-columns: 1fr !important; }
-          #services { padding: 80px 28px !important; }
-        }
+        @media (max-width: 1024px) { .services-grid { grid-template-columns: repeat(2, 1fr) !important; } }
+        @media (max-width: 640px) { .services-grid { grid-template-columns: 1fr !important; } #services { padding: 80px 28px !important; } }
       `}</style>
     </section>
   )
 }
 
-function ServiceCard({ num, title, desc, tags }) {
+function ServiceCard({ num, title, desc, tags, index }) {
   return (
     <div style={{
-      background: 'var(--deep)',
+      background: 'var(--bg-main)',
       padding: '48px 40px',
       position: 'relative',
       transition: 'background 0.4s ease',
       cursor: 'default',
       overflow: 'hidden',
     }}
-    onMouseEnter={e => {
-      e.currentTarget.style.background = '#231710'
-    }}
-    onMouseLeave={e => {
-      e.currentTarget.style.background = 'var(--deep)'
-    }}
+    onMouseEnter={e => e.currentTarget.style.background = 'var(--cream)'}
+    onMouseLeave={e => e.currentTarget.style.background = 'var(--bg-main)'}
     >
-      {/* Number */}
       <div style={{
         fontFamily: 'var(--font-display)',
         fontSize: '64px', fontWeight: 300,
-        color: 'rgba(184,150,90,0.1)',
+        color: 'rgba(180,140,80,0.1)',
         lineHeight: 1,
         position: 'absolute', top: '24px', right: '32px',
       }}>{num}</div>
 
-      {/* Gold top line */}
-      <div style={{
-        width: '32px', height: '2px',
-        background: 'var(--gold)',
-        marginBottom: '32px',
-      }}/>
+      <div style={{ width: '32px', height: '2px', background: 'var(--gold)', marginBottom: '28px' }}/>
 
       <h3 style={{
         fontFamily: 'var(--font-display)',
         fontSize: '26px', fontWeight: 400,
-        color: 'var(--ivory)', marginBottom: '16px',
+        color: '#1A1A1A', marginBottom: '14px',
       }}>{title}</h3>
 
       <p style={{
         fontFamily: 'var(--font-body)',
         fontSize: '13px', lineHeight: '1.8',
-        color: 'var(--text-muted)', marginBottom: '28px',
+        color: 'var(--text-muted)', marginBottom: '24px',
       }}>{desc}</p>
 
-      {/* Tags */}
       <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
         {tags.map(tag => (
           <span key={tag} style={{
             fontFamily: 'var(--font-body)',
             fontSize: '9px', letterSpacing: '0.2em',
-            color: 'var(--gold)', textTransform: 'uppercase',
+            color: 'var(--clay)', textTransform: 'uppercase',
             padding: '5px 12px',
-            border: '1px solid rgba(184,150,90,0.25)',
+            border: '1px solid rgba(160,112,48,0.25)',
           }}>{tag}</span>
         ))}
       </div>

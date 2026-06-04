@@ -16,26 +16,25 @@ export default function Navbar() {
     <>
       <nav style={{
         position: 'fixed', top: 0, left: 0, right: 0, zIndex: 1000,
-        padding: scrolled ? '16px 48px' : '28px 48px',
+        padding: scrolled ? '14px 48px' : '24px 48px',
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-        background: scrolled ? 'rgba(44,31,20,0.96)' : 'transparent',
+        background: scrolled ? 'rgba(250,247,242,0.96)' : 'transparent',
         backdropFilter: scrolled ? 'blur(12px)' : 'none',
-        borderBottom: scrolled ? '1px solid rgba(184,150,90,0.15)' : 'none',
+        borderBottom: scrolled ? '1px solid rgba(180,140,80,0.15)' : 'none',
         transition: 'all 0.5s ease',
       }}>
         {/* Logo */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
           <span style={{
             fontFamily: 'var(--font-display)',
-            fontSize: '22px',
-            fontWeight: 500,
+            fontSize: '22px', fontWeight: 500,
             letterSpacing: '0.08em',
-            color: 'var(--ivory)',
+            color: scrolled ? '#1A1A1A' : 'var(--bg-main)',
+            transition: 'color 0.5s ease',
           }}>ASYA</span>
           <span style={{
             fontFamily: 'var(--font-body)',
-            fontSize: '9px',
-            fontWeight: 300,
+            fontSize: '9px', fontWeight: 300,
             letterSpacing: '0.35em',
             color: 'var(--gold)',
             textTransform: 'uppercase',
@@ -43,25 +42,20 @@ export default function Navbar() {
         </div>
 
         {/* Desktop Nav */}
-        <ul style={{
-          display: 'flex', gap: '40px', listStyle: 'none',
-          '@media (max-width: 768px)': { display: 'none' }
-        }} className="desktop-nav">
+        <ul style={{ display: 'flex', gap: '40px', listStyle: 'none' }} className="desktop-nav">
           {links.map(link => (
             <li key={link}>
               <a href={`#${link.toLowerCase()}`} style={{
                 fontFamily: 'var(--font-body)',
-                fontSize: '11px',
-                fontWeight: 400,
+                fontSize: '11px', fontWeight: 400,
                 letterSpacing: '0.2em',
-                color: 'var(--white)',
+                color: scrolled ? '#2C2420' : 'var(--bg-main)',
                 textDecoration: 'none',
                 textTransform: 'uppercase',
                 transition: 'color 0.3s ease',
-                position: 'relative',
               }}
-              onMouseEnter={e => e.target.style.color = 'var(--gold-light)'}
-              onMouseLeave={e => e.target.style.color = 'var(--sand)'}
+              onMouseEnter={e => e.target.style.color = 'var(--gold)'}
+              onMouseLeave={e => e.target.style.color = scrolled ? '#2C2420' : 'var(--bg-main)'}
               >{link}</a>
             </li>
           ))}
@@ -70,18 +64,17 @@ export default function Navbar() {
         {/* CTA */}
         <a href="#contact" style={{
           fontFamily: 'var(--font-body)',
-          fontSize: '10px',
-          fontWeight: 400,
+          fontSize: '10px', fontWeight: 400,
           letterSpacing: '0.25em',
-          color: 'var(--deep)',
+          color: 'var(--bg-main)',
           background: 'var(--gold)',
           textDecoration: 'none',
           textTransform: 'uppercase',
           padding: '11px 28px',
           transition: 'all 0.3s ease',
         }}
-        onMouseEnter={e => { e.target.style.background = 'var(--gold-light)'; e.target.style.letterSpacing = '0.3em'; }}
-        onMouseLeave={e => { e.target.style.background = 'var(--gold)'; e.target.style.letterSpacing = '0.25em'; }}
+        onMouseEnter={e => { e.target.style.background = 'var(--gold-light)' }}
+        onMouseLeave={e => { e.target.style.background = 'var(--gold)' }}
         >Get Quote</a>
 
         {/* Hamburger */}
@@ -92,18 +85,18 @@ export default function Navbar() {
           {[0,1,2].map(i => (
             <span key={i} style={{
               display: 'block', width: '24px', height: '1px',
-              background: 'var(--gold)',
+              background: scrolled ? 'var(--gold)' : 'var(--bg-main)',
               transition: 'all 0.3s ease',
             }}/>
           ))}
         </button>
       </nav>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu */}
       {menuOpen && (
         <div style={{
           position: 'fixed', inset: 0, zIndex: 999,
-          background: 'rgba(44,31,20,0.98)',
+          background: 'rgba(250,247,242,0.98)',
           display: 'flex', flexDirection: 'column',
           alignItems: 'center', justifyContent: 'center', gap: '40px',
         }}>
@@ -118,7 +111,7 @@ export default function Navbar() {
               style={{
                 fontFamily: 'var(--font-display)',
                 fontSize: '36px', fontWeight: 400,
-                color: 'var(--ivory)', textDecoration: 'none',
+                color: '#1A1A1A', textDecoration: 'none',
                 letterSpacing: '0.05em',
               }}>
               {link}

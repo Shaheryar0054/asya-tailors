@@ -7,27 +7,24 @@ const items = [
 
 export default function Marquee() {
   const doubled = [...items, ...items]
-
   return (
     <div style={{
       background: 'var(--gold)',
       padding: '14px 0',
       overflow: 'hidden',
-      position: 'relative',
     }}>
       <div style={{
-        display: 'flex', gap: '0',
+        display: 'flex',
         animation: 'marquee 28s linear infinite',
         width: 'max-content',
       }}>
         {doubled.map((item, i) => (
           <span key={i} style={{
             fontFamily: 'var(--font-body)',
-            fontSize: '10px',
-            fontWeight: 400,
+            fontSize: '10px', fontWeight: 400,
             letterSpacing: '0.25em',
             textTransform: 'uppercase',
-            color: 'var(--deep)',
+            color: '#FAF7F2',
             padding: '0 20px',
             whiteSpace: 'nowrap',
           }}>{item}</span>

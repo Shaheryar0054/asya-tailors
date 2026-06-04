@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import product1 from '../assets/product-1.png'
-import product2 from '../assets/product-2.jpg'
+import product2 from '../assets/product-5.jpeg'
 import product3 from '../assets/product-3.jpg'
 import product4 from '../assets/product-4.jpg'
 
